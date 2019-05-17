@@ -1,0 +1,58 @@
+﻿<Field ID="{ac7bb138-02dc-40eb-b07a-84c15575b6e9}" ReadOnly="TRUE" Type="Computed" Name="Thumbnail" ShowInNewForm="FALSE" ShowInFileDlg="FALSE" ShowInEditForm="FALSE" DisplayName="$Resources:core,Thumbnail;" Sealed="TRUE" Sortable="FALSE" Filterable="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Thumbnail">
+        <FieldRefs>
+          <FieldRef Name="ImageWidth" />
+          <FieldRef Name="ImageHeight" />
+          <FieldRef Name="FSObjType" />
+          <FieldRef Name="EncodedAbsThumbnailUrl" />
+          <FieldRef Name="Description" />
+          <FieldRef Name="ThumbnailExists" />
+          <FieldRef Name="AlternateThumbnailUrl" />
+        </FieldRefs>
+        <DisplayPattern>
+          <IfEqual>
+            <Expr1>
+              <LookupColumn Name="FSObjType" />
+            </Expr1>
+            <Expr2>0</Expr2>
+            <Then>
+              <IfEqual>
+                <Expr1>
+                  <LookupColumn Name="ImageWidth" />
+                </Expr1>
+                <Expr2>
+                </Expr2>
+                <Then>
+                </Then>
+                <Else>
+                  <IfEqual>
+                    <Expr1>
+                      <LookupColumn Name="ImageWidth" />
+                    </Expr1>
+                    <Expr2>0</Expr2>
+                    <Then>
+                    </Then>
+                    <Else><HTML><![CDATA[<a href="]]></HTML>
+                      <URL Cmd="Display" /><HTML><![CDATA["><img border="0" alt="]]></HTML>
+                      <IfEqual>
+                        <Expr1>
+                          <Column Name="Description" />
+                        </Expr1>
+                        <Expr2>
+                        </Expr2>
+                        <Then><HTML><![CDATA[$Resources:core,Thumbnail;]]></HTML>
+                        </Then>
+                        <Else>
+                          <Column Name="Description" HTMLEncode="TRUE" />
+                        </Else>
+                      </IfEqual><HTML><![CDATA[" src="]]></HTML>
+                      <Field Name="EncodedAbsThumbnailUrl" /><HTML><![CDATA[">
+                                        </a>
+                                        ]]></HTML>
+                    </Else>
+                  </IfEqual>
+                </Else>
+              </IfEqual>
+            </Then>
+          </IfEqual>
+        </DisplayPattern>
+      </Field>
