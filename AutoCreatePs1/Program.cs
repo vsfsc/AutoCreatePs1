@@ -16,7 +16,8 @@ namespace AutoCreatePs1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCreative());// new FrmImportsData ());// new FrmTestList() );//FrmChangeAuthor new  ());//  FrmFillData());
+            Application.Run(new FrmTestList() );
+               // ；、、new FrmCreative());// new FrmImportsData ()); //FrmChangeAuthor new  ());//  FrmFillData());
         }
     }
 }

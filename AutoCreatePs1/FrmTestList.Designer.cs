@@ -43,6 +43,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.chkDayType = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.btnSentences = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -181,11 +182,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // btnSentences
+            // 
+            this.btnSentences.Location = new System.Drawing.Point(660, 178);
+            this.btnSentences.Name = "btnSentences";
+            this.btnSentences.Size = new System.Drawing.Size(75, 23);
+            this.btnSentences.TabIndex = 11;
+            this.btnSentences.Text = "分句子";
+            this.btnSentences.UseVisualStyleBackColor = true;
+            this.btnSentences.Click += new System.EventHandler(this.btnSentences_Click);
+            // 
             // FrmTestList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 500);
+            this.Controls.Add(this.btnSentences);
             this.Controls.Add(this.chkDayType);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -225,5 +237,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox chkDayType;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSentences;
     }
 }

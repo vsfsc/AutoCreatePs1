@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -883,6 +884,51 @@ namespace AutoCreatePs1
                 //MessageBox.Show("ok");
                 //MessageBox.Show(list.DefaultViewUrl);
             }
+        }
+
+        private void btnSentences_Click(object sender, EventArgs e)
+        {
+            SeprateSentences(txtResult.Text);
+            //SeperateWords(txtResult.Text);
+            //test();
+        }
+        private void test()
+        {
+            string text = "a|e|s|v"; 
+            Regex rx = new Regex(@"(e\S$)");//(a|e|s)
+
+            MatchCollection matchs = rx.Matches(text);
+            foreach (Match match in matchs )
+            {
+                int i = match.Index;
+                Console.WriteLine(match.Value);
+            }
+
+            Console.WriteLine(matchs.Count );
+        }
+        private void  SeprateSentences(string strText)
+        {
+            string ignore = "[\r\n\t\"]";//
+            strText = Regex.Replace(strText, ignore,"");
+
+
+
+            Regex rx = new Regex(@"(\S.+?[.!?])(?=\s+|$)");
+            foreach (Match match in rx.Matches(strText))
+            {
+                int i = match.Index;
+                Console.WriteLine(match.Value);
+            }
+        }
+        private void SeperateWords(string strText)
+        {
+             Regex reg = new  Regex(@"\b\w+\b");
+             MatchCollection mc = reg.Matches(strText);
+            foreach ( Match m in mc)
+            {
+                Console.WriteLine(m.Value);
+            }
+
         }
     }
     public class webObj
